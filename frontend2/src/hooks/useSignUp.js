@@ -9,18 +9,23 @@ const [error, setError] = useState(null)
 const [loading, setLoading] = useState(null)
 
 const registerUser =async(values)=>{
-  if(values.password !== values.passwordConfirm){
+   try {if(values.password !== values.passwordConfirm){
+    console.log("Values : ",values);
+
+    
     return setError('Password are not the same')
   }
+console.log("Values : ",values);
 
-  try {
+ 
     setError(null)
     setLoading(false)
-    const res = await axios.post('https://localhost:8000/api/v1/users/register', values);
+    const res = await axios.post('https://localhost:9000/api/v1/users/register', values);
     // const res = await fetch('https://localhost:8000/api/v1/users/register', {
     //   method:'POST',
     //   body: JSON.stringify(values)
     // })
+console.log("Response :",res);
 
     const data = await res.json();
     if(res.status === 201){

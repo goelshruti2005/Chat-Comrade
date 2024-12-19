@@ -9,7 +9,10 @@ function Register() {
  
   const {loading, error, registerUser} = useSignUp();
  
-  const handleRegister = (values) => {
+  const handleRegister = async(values) => {
+    //const res = await axios.post('https://localhost:9000/api/v1/users/register', values);
+//console.log("Response :",res);
+
     registerUser(values)
   }
   
@@ -29,8 +32,8 @@ function Register() {
             autoComplete="off" 
         >
           <Form.Item
-            label="Full Name"
-            name="fullname"
+            label="Username"
+            name="username"
             rules={[
               {
                 required:true,
