@@ -51,7 +51,7 @@ const registerUser = asyncHandler(async(req,res)=>{
     const profilePic = await uploadOnCloudinary(picLocalPath)
 
    const user = await User.create({
-    fullname: fullname || "",
+    fullname: (fullname? fullname: ""),
     username,
     email,
     password,
